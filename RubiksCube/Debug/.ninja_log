@@ -1,0 +1,8 @@
+# ninja log v5
+1	767	0	src/rubikscuge.o	6d76c0ed3acc9a0c
+2	768	0	src/rubikscuge_utils.o	e7620b2b7a4cf170
+768	1192	0	rubikscuge	1caa94404a24897a
+20	924	0	src/rubikscuge.o	6d76c0ed3acc9a0c
+924	1438	0	rubikscuge	1caa94404a24897a
+1	370	0	src/rubikscuge.o	6d76c0ed3acc9a0c
+370	544	0	rubikscuge	1caa94404a24897a
