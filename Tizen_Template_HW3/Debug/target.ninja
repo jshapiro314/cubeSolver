@@ -1,0 +1,4 @@
+build main_build: phony tizen_gles_sample
+build all: phony main_build
+default all
+edje-cc-options = -deps

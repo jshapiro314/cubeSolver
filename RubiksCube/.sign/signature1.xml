@@ -4,11 +4,11 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>emp0c5bUuQEfIql4t9oUZp7GtQBFiuIUURH1JyiCfs8=</DigestValue>
+<DigestValue>f7p4BH2koQmDmeETAX6UzzccNTSlf4nfKmlAFRaWYJ0=</DigestValue>
 </Reference>
 <Reference URI="bin%2Frubikscuge">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>4HunrBamyINdXm6G7zsRpXiocTk18vdj6ZXDRsMOCSg=</DigestValue>
+<DigestValue>D1b+QNzYzG59pRR6YXxrf0vCxKJqJIU/RZc74XTuc3w=</DigestValue>
 </Reference>
 <Reference URI="shared%2Fres%2Frubikscuge.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -27,9 +27,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-Jf0B8nQ62ChYWThCJpgsbH2kPFy7L0FqUfkl9tFSFcOO2oziw0SeD8HLnzKoBBa9lwl54mHov0DY
-amBn+BHm70FCrHui5tTUs1YW19HH0x1Ud9vtFOQ5wKObsOuPElUKrEt89MtkmnGB5GC+0H6j8QxQ
-guHqbBMcDbdU5r9keek=
+ETuxB+nIXjjXvUhfR83wGLTS/eYHBuMVvob261JZcDYBkp6f76/+XL6WujPc/+qbGI3Xv5gLZh8J
+91BZNj6wnK4JrAu67hPNPV7HnBytE8quYqJaWjMSBA3k3doHGm8r6WYcSkoENZ4ibKTeqMHeVC8r
+3BrgoxqiXsDQhXYFffE=
 </SignatureValue>
 <KeyInfo>
 <X509Data>
