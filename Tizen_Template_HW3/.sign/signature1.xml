@@ -4,11 +4,11 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>gyrKNrTb+o7fHNcK7QpeOWyrWNQYVaP3RzgBTZz2ygI=</DigestValue>
+<DigestValue>P7cb8nna5TQwpv0pgdW3fwY4QBFrmVLRIknD6mjiknY=</DigestValue>
 </Reference>
 <Reference URI="bin%2Ftizen_gles_sample">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>deOmxamDZl5qEXTosgCuNnOcjEt0hFNOTul9KHAKcS4=</DigestValue>
+<DigestValue>2h44VCUZv88i8XDs8jt931C/7w9Ikk5bUf6rRuS7Adw=</DigestValue>
 </Reference>
 <Reference URI="res%2Fobj3d%2Fcube">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -119,9 +119,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-WaZzB9frkm2LInUsy7107+P1hKLaTMXMdXUbMhwq9P2a8K4Itlnug+QNH9jZfudRA0D3xm295KIO
-Dr08d5eby2p+77KxPGa2LlyZhAmYeAUGyvHYyzRLX5FpuxRwq+jtquliLYbmrEX+N/cq6ilq4qNE
-G43C7ihv+nXjcC3ROkk=
+p7kxpUWLE7HYc1jksBvKcqRgr06aXJlr1hw/CMUpZnAZT2UNwAHNllqS844tNQcMPiI37o3Sgrqq
+kdvAHSVmOlp6T/CHgF1Y8v219hDCza00y5ezM5nFFhlDDpzJllNORfCSy+ic7dCSny9sPSnHHLd3
+6nPgxXXQyMzCypub8HA=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

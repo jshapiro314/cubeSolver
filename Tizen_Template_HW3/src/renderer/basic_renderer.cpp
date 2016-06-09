@@ -142,15 +142,23 @@ void BasicRenderer::SetViewPort(int w, int h)
 
 void BasicRenderer::RenderFrame()
 {
+	static float timeCount = 0;
+
 	//LOGI("BasicRenderer::RenderFrame()");
 	ComputeTick();
+	mat4 worldMat = GetWorldMatrix();
 
 	if (mIsAutoRotateEye) mCamera->RotateAuto(mDeltaTime);
 
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 	check_gl_error("glClear");
 
-	PassUniform();
+	if(mTimer->GetElapsedTime() > 5 && mTimer->GetElapsedTime() < 10){
+		mat4 translate = mat4(1,0,0,0,0,1,0,0,0,0,1,0,5,0,0,1);
+		worldMat = GetWorldMatrix() * translate;
+	}
+
+	PassUniform(worldMat);
 
 	Draw();
 }
@@ -282,7 +290,8 @@ void BasicRenderer::CreateVbo()
 
 void BasicRenderer::RebindVbo() const
 {
-	for(int i=0; i<=buffNum; i++){
+	//for(int i=0; i<=buffNum; i++){
+	int i=0;
 	LOGI("BasicRenderer::RebindVbo\n");
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer[i].mVboVertices);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vertexBuffer[i].mVboIndices);
@@ -321,7 +330,52 @@ void BasicRenderer::RebindVbo() const
 		glActiveTexture(GL_TEXTURE0 + TEX_POS_NORMAL);
 		glBindTexture(GL_TEXTURE_2D, mTexNorId);
 	}
+	//}
+}
+
+void BasicRenderer::SetAtrib(int i) const
+{
+	//for(int i=0; i<=buffNum; i++){
+	//int i=0;
+	LOGI("BasicRenderer::RebindVbo\n");
+	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer[i].mVboVertices);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vertexBuffer[i].mVboIndices);
+
+	int stride = sizeof(VertexStruct); // stride: sizeof(float) * number of components
+	int offset = 0;
+	glEnableVertexAttribArray(V_ATTRIB_POSITION);
+	glVertexAttribPointer(V_ATTRIB_POSITION, 3, GL_FLOAT, GL_FALSE, stride, reinterpret_cast<GLvoid *>(offset));
+
+	offset += sizeof(vec3);
+	glEnableVertexAttribArray(V_ATTRIB_NORMAL);
+	glVertexAttribPointer(V_ATTRIB_NORMAL, 3, GL_FLOAT, GL_FALSE, stride, reinterpret_cast<GLvoid *>(offset));
+
+	// If renderer has texture, we should enable vertex attribute for texCoord
+	if (mHasTexture || mHasNorMap)
+	{
+		offset += sizeof(vec3);
+		glEnableVertexAttribArray(V_ATTRIB_TEX);
+		glVertexAttribPointer(V_ATTRIB_TEX, 2, GL_FLOAT, GL_FALSE, stride, reinterpret_cast<GLvoid *>(offset));
+
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, mTexId);
 	}
+
+	if (mHasNorMap)
+	{
+		// Bump mapping need to change space (world and TBN)
+		// mTangentBuffer calculated by ComputeTangent() when normal texture has set
+		glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer[i].mVboTangents);
+
+		offset = 0;
+		stride = sizeof(vec3);
+		glEnableVertexAttribArray(V_ATTRIB_TANGENT);
+		glVertexAttribPointer(V_ATTRIB_TANGENT, 3, GL_FLOAT, GL_FALSE, stride, reinterpret_cast<GLvoid *>(offset));
+
+		glActiveTexture(GL_TEXTURE0 + TEX_POS_NORMAL);
+		glBindTexture(GL_TEXTURE_2D, mTexNorId);
+	}
+	//}
 }
 
 mat4 BasicRenderer::GetInverseTranspose(const mat4& m) const
@@ -331,9 +385,9 @@ mat4 BasicRenderer::GetInverseTranspose(const mat4& m) const
 }
 
 
-void BasicRenderer::PassUniform() const
+void BasicRenderer::PassUniform(mat4 worldMat) const
 {
-	mat4 worldMat = GetWorldMatrix();
+	//mat4 worldMat = GetWorldMatrix();
 	mat4 viewMat = mCamera->GetViewMat();
 	mat4 projMat = mCamera->GetPerspectiveMat();
 	mat4 invTransWorldMat = GetInverseTranspose(worldMat);
@@ -359,7 +413,9 @@ void BasicRenderer::PassUniform() const
 
 void BasicRenderer::Draw() const
 {
+	SetAtrib(0);
 	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(vertexBuffer[0].mIndexBuffer.size()), GL_UNSIGNED_SHORT, static_cast<GLvoid *>(NULL));
+	SetAtrib(1);
 	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(vertexBuffer[1].mIndexBuffer.size()), GL_UNSIGNED_SHORT, static_cast<GLvoid *>(NULL));
 	check_gl_error("glDrawElements");
 }

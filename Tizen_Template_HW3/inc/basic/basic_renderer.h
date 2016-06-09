@@ -9,6 +9,7 @@
 #include "basic_texdata.h"
 #include "basic_shader.h"
 #include "basic_timer.h"
+//#include "cubeObject.h"
 
 struct VertexStruct
 {
@@ -62,6 +63,9 @@ protected:
 
 	//vertex buffer class list
 	VertBuff vertexBuffer[2];
+
+	//object array
+	//cubeObject objectArray[2];
 
 	// vertex buffer
 	//std::vector<VertexStruct> mVertexBuffer;
@@ -132,12 +136,14 @@ private:// Rendering functions
 
 	void CreateVbo();
 
-	void PassUniform() const;
+	void PassUniform(glm::mat4 worldMat) const;
 
 	void Draw() const;
 
 public:
 	void RebindVbo() const;
+
+	void SetAtrib(int i) const;
 
 private:// Utility functions
 	void LogInfo() const;
