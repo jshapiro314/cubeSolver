@@ -6,8 +6,8 @@ using namespace glm;
 
 BasicCamera::BasicCamera() :
 	TORADIAN(pi<float>() / 180.0f),
-	mEye(vec3(150.0f, 25.0f, -100.0f)),
-	mDist(150.0f),
+	mEye(vec3(1500.0f, 250.0f, -1000.0f)),
+	mDist(100.0f),
 	mUp(vec3(0, 1.0f, 0.0f)),
 	mFw(vec3(0, 0, -1.0f)),
 	mAngle(vec3(0.0f, -45.0f, 0)),

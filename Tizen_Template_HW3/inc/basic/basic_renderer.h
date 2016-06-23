@@ -28,6 +28,22 @@ struct VertBuff
 	GLuint mVboIndices;
 	GLuint mVboTangents;
 	GLuint mVboInstTransforms;
+
+	BasicShader* mShader = new BasicShader();
+
+//	// variables for texture handling
+//	bool mHasTexture;
+//	bool mHasCubemap;
+//	bool mHasNorMap;
+//	bool mHasHeightmap;
+//
+//	// Texture object id
+//	GLuint mTexId;
+//	GLuint mTexCubeId;
+//	GLuint mTexNorId;
+//	GLuint mTexHeightId;
+//
+	glm::mat4 worldMat = glm::mat4(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1);
 };
 
 class BasicRenderer
@@ -52,7 +68,7 @@ protected:
 
 	BasicTimer* mTimer;
 	BasicCamera* mCamera;
-	BasicShader* mShader;
+	//BasicShader* mShader;
 
 	bool mIsAutoRotateEye;
 	bool mIsFill;
@@ -62,7 +78,7 @@ protected:
 	glm::vec2 mTouchPoint;
 
 	//vertex buffer class list
-	VertBuff vertexBuffer[2];
+	VertBuff vertexBuffer[27];
 
 	//object array
 	//cubeObject objectArray[2];
@@ -136,9 +152,11 @@ private:// Rendering functions
 
 	void CreateVbo();
 
-	void PassUniform(glm::mat4 worldMat) const;
+	void PassUniform(int i) const;
 
 	void Draw() const;
+
+	void Draw(int i) const;
 
 public:
 	void RebindVbo() const;

@@ -13,7 +13,7 @@ BasicRenderer::BasicRenderer() :
 	mDeltaTime(0),
 	mTimer(NULL),
 	mCamera(NULL),
-	mShader(NULL),
+	//mShader(NULL),
 	mIsAutoRotateEye(true),
 	mIsFill(true),
 	mIsTouchOn(false),
@@ -30,13 +30,13 @@ BasicRenderer::BasicRenderer() :
 {
 	mTimer = new BasicTimer();
 	mCamera = new BasicCamera();
-	mShader = new BasicShader();
+	//mShader = new BasicShader();
 }
 
 BasicRenderer::~BasicRenderer()
 {
 	delete mTimer;
-	delete mShader;
+	//delete mShader;
 	delete mCamera;
 }
 
@@ -44,30 +44,31 @@ BasicRenderer::~BasicRenderer()
 /// Sets vertex shader and fragment shader for rendering
 bool BasicRenderer::SetProgram(const std::string& vertexSource, const std::string& fragmentSource) const
 {
-	mShader->CreateProgram(vertexSource, fragmentSource);
+	//vertexBuffer[buffNum].mShader = new BasicShader();
+	vertexBuffer[buffNum].mShader->CreateProgram(vertexSource, fragmentSource);
 
-	if (!mShader->GetProgram())
+	if (!vertexBuffer[buffNum].mShader->GetProgram())
 	{
 		LOGE("Could not create program.\n");
 		return false;
 	}
 
-	mShader->Use();
+	vertexBuffer[buffNum].mShader->Use();
 
 	return true;
 }
 
 bool BasicRenderer::SetProgram(const char* vertexSource, const char* fragmentSource) const
 {
-	mShader->CreateProgram(vertexSource, fragmentSource);
+	vertexBuffer[buffNum].mShader->CreateProgram(vertexSource, fragmentSource);
 
-	if (!mShader->GetProgram())
+	if (!vertexBuffer[buffNum].mShader->GetProgram())
 	{
 		LOGE("Could not create program.\n");
 		return false;
 	}
 
-	mShader->Use();
+	vertexBuffer[buffNum].mShader->Use();
 
 	return true;
 }
@@ -146,21 +147,220 @@ void BasicRenderer::RenderFrame()
 
 	//LOGI("BasicRenderer::RenderFrame()");
 	ComputeTick();
-	mat4 worldMat = GetWorldMatrix();
+	//mat4 worldMatRot = GetWorldMatrix();
 
 	if (mIsAutoRotateEye) mCamera->RotateAuto(mDeltaTime);
 
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 	check_gl_error("glClear");
 
-	if(mTimer->GetElapsedTime() > 5 && mTimer->GetElapsedTime() < 10){
-		mat4 translate = mat4(1,0,0,0,0,1,0,0,0,0,1,0,5,0,0,1);
-		worldMat = GetWorldMatrix() * translate;
+	double timeElapsed = mTimer->GetElapsedTime();
+
+	static int count = 0;
+	float theta = -0.01745;
+	float Ntheta =0.01745;
+	mat4 rotateX = mat4(1,0,0,0,0,cos(theta),sin(theta),0,0,sin(theta)*-1,cos(theta),0,0,0,0,1);
+	mat4 rotateY = mat4(cos(theta), 0, sin(theta)*-1, 0, 0, 1, 0, 0, sin(theta), 0, cos(theta), 0, 0, 0, 0, 1 );
+	mat4 rotateZ = mat4(cos(theta), sin(theta), 0, 0, sin(theta)*-1, cos(theta), 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 );
+	mat4 NrotateX = mat4(1,0,0,0,0,cos(Ntheta),sin(Ntheta),0,0,sin(Ntheta)*-1,cos(Ntheta),0,0,0,0,1);
+	mat4 NrotateY = mat4(cos(Ntheta), 0, sin(Ntheta)*-1, 0, 0, 1, 0, 0, sin(Ntheta), 0, cos(Ntheta), 0, 0, 0, 0, 1 );
+	mat4 NrotateZ = mat4(cos(Ntheta), sin(Ntheta), 0, 0, sin(Ntheta)*-1, cos(Ntheta), 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 );
+
+	//rotate F
+	if(timeElapsed > 2 && count < 90){
+
+		for(int i=1;i<10;i++){
+			vertexBuffer[i].worldMat = vertexBuffer[i].worldMat * rotateZ;
+		}
+		count++;
 	}
 
-	PassUniform(worldMat);
+	//rotate R
+	if(count < 180 && count > 89){
 
-	Draw();
+		vertexBuffer[1].worldMat = vertexBuffer[1].worldMat * rotateY;
+		vertexBuffer[2].worldMat = vertexBuffer[2].worldMat * rotateY;
+		vertexBuffer[3].worldMat = vertexBuffer[3].worldMat * rotateY;
+		vertexBuffer[12].worldMat = vertexBuffer[12].worldMat * rotateX;
+		vertexBuffer[14].worldMat = vertexBuffer[14].worldMat * rotateX;
+		vertexBuffer[17].worldMat = vertexBuffer[17].worldMat * rotateX;
+		vertexBuffer[20].worldMat = vertexBuffer[20].worldMat * rotateX;
+		vertexBuffer[23].worldMat = vertexBuffer[23].worldMat * rotateX;
+		vertexBuffer[26].worldMat = vertexBuffer[26].worldMat * rotateX;
+
+		count++;
+	}
+
+	//rotate B
+	if(count < 270 && count > 179){
+
+		vertexBuffer[1].worldMat = vertexBuffer[1].worldMat * NrotateX;
+		vertexBuffer[12].worldMat = vertexBuffer[12].worldMat * rotateY;
+		vertexBuffer[20].worldMat = vertexBuffer[20].worldMat * rotateY;
+		vertexBuffer[19].worldMat = vertexBuffer[19].worldMat * NrotateZ;
+		vertexBuffer[22].worldMat = vertexBuffer[22].worldMat * NrotateZ;
+		vertexBuffer[25].worldMat = vertexBuffer[25].worldMat * NrotateZ;
+		vertexBuffer[18].worldMat = vertexBuffer[18].worldMat * NrotateZ;
+		vertexBuffer[21].worldMat = vertexBuffer[21].worldMat * NrotateZ;
+		vertexBuffer[24].worldMat = vertexBuffer[24].worldMat * NrotateZ;
+
+		count++;
+	}
+
+	//rotate L
+	if(count < 360 && count > 269){
+
+		vertexBuffer[1].worldMat = vertexBuffer[1].worldMat * rotateZ;
+		vertexBuffer[19].worldMat = vertexBuffer[19].worldMat * rotateY;
+		vertexBuffer[18].worldMat = vertexBuffer[18].worldMat * rotateY;
+		vertexBuffer[10].worldMat = vertexBuffer[10].worldMat * NrotateX;
+		vertexBuffer[13].worldMat = vertexBuffer[13].worldMat * NrotateX;
+		vertexBuffer[15].worldMat = vertexBuffer[15].worldMat * NrotateX;
+		vertexBuffer[7].worldMat = vertexBuffer[7].worldMat * NrotateY;
+		vertexBuffer[8].worldMat = vertexBuffer[8].worldMat * NrotateY;
+		vertexBuffer[9].worldMat = vertexBuffer[9].worldMat * NrotateY;
+
+		count++;
+	}
+
+	//rotate T
+	if(count < 450 && count > 359){
+
+		vertexBuffer[18].worldMat = vertexBuffer[18].worldMat * NrotateZ;
+		vertexBuffer[19].worldMat = vertexBuffer[19].worldMat * NrotateZ;
+		vertexBuffer[1].worldMat = vertexBuffer[1].worldMat * NrotateX;
+		vertexBuffer[12].worldMat = vertexBuffer[12].worldMat * rotateX;
+		vertexBuffer[11].worldMat = vertexBuffer[11].worldMat * rotateY;
+		vertexBuffer[4].worldMat = vertexBuffer[4].worldMat * NrotateX;
+		vertexBuffer[20].worldMat = vertexBuffer[20].worldMat * rotateX;
+		vertexBuffer[2].worldMat = vertexBuffer[2].worldMat * rotateZ;
+		vertexBuffer[3].worldMat = vertexBuffer[3].worldMat * rotateZ;
+
+		count++;
+	}
+
+	//rotate U
+	if(count < 540 && count > 449){
+
+		vertexBuffer[7].worldMat = vertexBuffer[7].worldMat * rotateZ;
+		vertexBuffer[8].worldMat = vertexBuffer[8].worldMat * rotateZ;
+		vertexBuffer[9].worldMat = vertexBuffer[9].worldMat * rotateZ;
+		vertexBuffer[6].worldMat = vertexBuffer[6].worldMat * rotateX;
+		vertexBuffer[16].worldMat = vertexBuffer[16].worldMat * NrotateY;
+		vertexBuffer[21].worldMat = vertexBuffer[21].worldMat * NrotateX;
+		vertexBuffer[26].worldMat = vertexBuffer[26].worldMat * NrotateZ;
+		vertexBuffer[23].worldMat = vertexBuffer[23].worldMat * NrotateZ;
+		vertexBuffer[24].worldMat = vertexBuffer[24].worldMat * NrotateX;
+
+		count++;
+	}
+
+	//rotate Ui
+	if(count < 630 && count > 539){
+
+		vertexBuffer[7].worldMat = vertexBuffer[7].worldMat * NrotateZ;
+		vertexBuffer[8].worldMat = vertexBuffer[8].worldMat * NrotateZ;
+		vertexBuffer[9].worldMat = vertexBuffer[9].worldMat * NrotateZ;
+		vertexBuffer[6].worldMat = vertexBuffer[6].worldMat * NrotateX;
+		vertexBuffer[16].worldMat = vertexBuffer[16].worldMat * rotateY;
+		vertexBuffer[21].worldMat = vertexBuffer[21].worldMat * rotateX;
+		vertexBuffer[26].worldMat = vertexBuffer[26].worldMat * rotateZ;
+		vertexBuffer[23].worldMat = vertexBuffer[23].worldMat * rotateZ;
+		vertexBuffer[24].worldMat = vertexBuffer[24].worldMat * rotateX;
+
+		count++;
+	}
+
+	//rotate Ti
+	if(count < 720 && count > 629){
+
+		vertexBuffer[18].worldMat = vertexBuffer[18].worldMat * rotateZ;
+		vertexBuffer[19].worldMat = vertexBuffer[19].worldMat * rotateZ;
+		vertexBuffer[1].worldMat = vertexBuffer[1].worldMat * rotateX;
+		vertexBuffer[12].worldMat = vertexBuffer[12].worldMat * NrotateX;
+		vertexBuffer[11].worldMat = vertexBuffer[11].worldMat * NrotateY;
+		vertexBuffer[4].worldMat = vertexBuffer[4].worldMat * rotateX;
+		vertexBuffer[20].worldMat = vertexBuffer[20].worldMat * NrotateX;
+		vertexBuffer[2].worldMat = vertexBuffer[2].worldMat * NrotateZ;
+		vertexBuffer[3].worldMat = vertexBuffer[3].worldMat * NrotateZ;
+
+		count++;
+	}
+
+	//rotate Li
+	if(count < 810 && count > 719){
+
+		vertexBuffer[1].worldMat = vertexBuffer[1].worldMat * NrotateZ;
+		vertexBuffer[19].worldMat = vertexBuffer[19].worldMat * NrotateY;
+		vertexBuffer[18].worldMat = vertexBuffer[18].worldMat * NrotateY;
+		vertexBuffer[10].worldMat = vertexBuffer[10].worldMat * rotateX;
+		vertexBuffer[13].worldMat = vertexBuffer[13].worldMat * rotateX;
+		vertexBuffer[15].worldMat = vertexBuffer[15].worldMat * rotateX;
+		vertexBuffer[7].worldMat = vertexBuffer[7].worldMat * rotateY;
+		vertexBuffer[8].worldMat = vertexBuffer[8].worldMat * rotateY;
+		vertexBuffer[9].worldMat = vertexBuffer[9].worldMat * rotateY;
+
+		count++;
+	}
+
+	//rotate Bi
+	if(count < 900 && count > 809){
+
+		vertexBuffer[1].worldMat = vertexBuffer[1].worldMat * rotateX;
+		vertexBuffer[12].worldMat = vertexBuffer[12].worldMat * NrotateY;
+		vertexBuffer[20].worldMat = vertexBuffer[20].worldMat * NrotateY;
+		vertexBuffer[19].worldMat = vertexBuffer[19].worldMat * rotateZ;
+		vertexBuffer[22].worldMat = vertexBuffer[22].worldMat * rotateZ;
+		vertexBuffer[25].worldMat = vertexBuffer[25].worldMat * rotateZ;
+		vertexBuffer[18].worldMat = vertexBuffer[18].worldMat * rotateZ;
+		vertexBuffer[21].worldMat = vertexBuffer[21].worldMat * rotateZ;
+		vertexBuffer[24].worldMat = vertexBuffer[24].worldMat * rotateZ;
+
+		count++;
+	}
+
+	//rotate Ri
+	if(count < 990 && count > 899){
+
+		vertexBuffer[1].worldMat = vertexBuffer[1].worldMat * NrotateY;
+		vertexBuffer[2].worldMat = vertexBuffer[2].worldMat * NrotateY;
+		vertexBuffer[3].worldMat = vertexBuffer[3].worldMat * NrotateY;
+		vertexBuffer[12].worldMat = vertexBuffer[12].worldMat * NrotateX;
+		vertexBuffer[14].worldMat = vertexBuffer[14].worldMat * NrotateX;
+		vertexBuffer[17].worldMat = vertexBuffer[17].worldMat * NrotateX;
+		vertexBuffer[20].worldMat = vertexBuffer[20].worldMat * NrotateX;
+		vertexBuffer[23].worldMat = vertexBuffer[23].worldMat * NrotateX;
+		vertexBuffer[26].worldMat = vertexBuffer[26].worldMat * NrotateX;
+
+		count++;
+	}
+
+	//rotate Fi
+	if(count < 1080 && count > 989){
+
+		for(int i=1;i<10;i++){
+			vertexBuffer[i].worldMat = vertexBuffer[i].worldMat * NrotateZ;
+		}
+		count++;
+	}
+
+	if(count == 1080){
+		count = 0;
+	}
+
+
+//	if(mTimer->GetElapsedTime() > 5 && mTimer->GetElapsedTime() < 10){
+//		mat4 translate = mat4(1,0,0,0,0,1,0,0,0,0,1,0,5,0,0,1);
+//		worldMat = GetWorldMatrix() * translate;
+//	}
+
+	for(int i=0;i<27;i++){
+		vertexBuffer[i].mShader->Use();
+		PassUniform(i);
+		Draw(i);
+	}
+
+
 }
 
 void BasicRenderer::TogglePolygonMode()
@@ -385,39 +585,44 @@ mat4 BasicRenderer::GetInverseTranspose(const mat4& m) const
 }
 
 
-void BasicRenderer::PassUniform(mat4 worldMat) const
+void BasicRenderer::PassUniform(int i) const
 {
-	//mat4 worldMat = GetWorldMatrix();
+	mat4 worldMat = vertexBuffer[i].worldMat;
 	mat4 viewMat = mCamera->GetViewMat();
 	mat4 projMat = mCamera->GetPerspectiveMat();
 	mat4 invTransWorldMat = GetInverseTranspose(worldMat);
 
-	mShader->SetUniform("worldMat", worldMat);
-	mShader->SetUniform("viewMat", viewMat);
-	mShader->SetUniform("projMat", projMat);
-	mShader->SetUniform("invTransWorldMat", invTransWorldMat);
-	mShader->SetUniform("s_tex0", 0);
-	mShader->SetUniform("s_texNor", TEX_POS_NORMAL);
-	mShader->SetUniform("s_texCube", TEX_POS_CUBEMAP);
-	mShader->SetUniform("eyePos", mCamera->GetEye());
-	mShader->SetUniform("lightPos", vec3(50.0f, 50.0f, 50.0f));
-	mShader->SetUniform("materialDiff", vec3(0.8f, 1.0f, 0.7f));
-	mShader->SetUniform("materialSpec", vec3(0.8f, 1.0f, 0.7f));
-	mShader->SetUniform("materialAmbi", vec3(0.0f, 0.0f, 0.0f));
-	mShader->SetUniform("materialEmit", vec3(0.0f, 0.0f, 0.0f));
-	mShader->SetUniform("materialSh", 100.0f);
-	mShader->SetUniform("sourceDiff", vec3(0.7f, 0.7f, 0.7f));
-	mShader->SetUniform("sourceSpec", vec3(1.0f, 1.0f, 1.0f));
-	mShader->SetUniform("sourceAmbi", vec3(0.0f, 0.0f, 0.0f));
+	vertexBuffer[i].mShader->SetUniform("worldMat", worldMat);
+	vertexBuffer[i].mShader->SetUniform("viewMat", viewMat);
+	vertexBuffer[i].mShader->SetUniform("projMat", projMat);
+	vertexBuffer[i].mShader->SetUniform("invTransWorldMat", invTransWorldMat);
+	vertexBuffer[i].mShader->SetUniform("s_tex0", 0);
+	vertexBuffer[i].mShader->SetUniform("s_texNor", TEX_POS_NORMAL);
+	vertexBuffer[i].mShader->SetUniform("s_texCube", TEX_POS_CUBEMAP);
+	vertexBuffer[i].mShader->SetUniform("eyePos", mCamera->GetEye());
+	vertexBuffer[i].mShader->SetUniform("lightPos", vec3(50.0f, 50.0f, 50.0f));
+	vertexBuffer[i].mShader->SetUniform("materialDiff", vec3(0.8f, 1.0f, 0.7f));
+	vertexBuffer[i].mShader->SetUniform("materialSpec", vec3(0.8f, 1.0f, 0.7f));
+	vertexBuffer[i].mShader->SetUniform("materialAmbi", vec3(0.0f, 0.0f, 0.0f));
+	vertexBuffer[i].mShader->SetUniform("materialEmit", vec3(0.0f, 0.0f, 0.0f));
+	vertexBuffer[i].mShader->SetUniform("materialSh", 100.0f);
+	vertexBuffer[i].mShader->SetUniform("sourceDiff", vec3(0.7f, 0.7f, 0.7f));
+	vertexBuffer[i].mShader->SetUniform("sourceSpec", vec3(1.0f, 1.0f, 1.0f));
+	vertexBuffer[i].mShader->SetUniform("sourceAmbi", vec3(0.0f, 0.0f, 0.0f));
 }
 
 void BasicRenderer::Draw() const
 {
-	SetAtrib(0);
-	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(vertexBuffer[0].mIndexBuffer.size()), GL_UNSIGNED_SHORT, static_cast<GLvoid *>(NULL));
-	SetAtrib(1);
-	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(vertexBuffer[1].mIndexBuffer.size()), GL_UNSIGNED_SHORT, static_cast<GLvoid *>(NULL));
-	check_gl_error("glDrawElements");
+	for(int i=0; i< 27; i++){
+		SetAtrib(i);
+		glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(vertexBuffer[i].mIndexBuffer.size()), GL_UNSIGNED_SHORT, static_cast<GLvoid *>(NULL));
+	}
+}
+
+void BasicRenderer::Draw(int i) const
+{
+		SetAtrib(i);
+		glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(vertexBuffer[i].mIndexBuffer.size()), GL_UNSIGNED_SHORT, static_cast<GLvoid *>(NULL));
 }
 
 

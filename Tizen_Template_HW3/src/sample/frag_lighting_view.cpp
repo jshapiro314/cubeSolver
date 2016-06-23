@@ -8,12 +8,13 @@ void FragLightingView::OnInit()
 {
 	string vs = FileLoader::GetInstance()->ReadTxtFile("shader/view_f_lit/f_lit.vs");
 	string fs = FileLoader::GetInstance()->ReadTxtFile("shader/view_f_lit/f_lit.fs");
+	mViewRenderer->buffNum = 0;
 	mViewRenderer->SetProgram(vs, fs);
 
-	string teapot = FileLoader::GetInstance()->ReadTxtFile("obj3d/teapot");
+	string teapot = FileLoader::GetInstance()->ReadTxtFile("obj3d/cube");
 
 	TexData textJ;
-	FileLoader::GetInstance()->ReadTexture("tex/tex_c_brick.bmp", textJ);
+	FileLoader::GetInstance()->ReadTexture("i3dp_0807.png", textJ);
 
 	float scale = 1.0f;
 	mViewRenderer->SetNewModel(teapot, scale);

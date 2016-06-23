@@ -63,12 +63,12 @@ Evas_Object* SampleLauncher::InitSampleView(void* data)
 	case 1:
 		curView = new ColoringView(ad);
 		break;
-	case 2:
-		curView = new FragLightingView(ad);
-		break;
-	case 3:
-		curView = new NormalMappingView(ad);
-		break;
+//	case 2:
+//		curView = new FragLightingView(ad);
+//		break;
+//	case 3:
+//		curView = new NormalMappingView(ad);
+//		break;
 	default:
 		break;
 	}

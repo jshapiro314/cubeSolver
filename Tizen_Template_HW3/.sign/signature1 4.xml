@@ -6,17 +6,13 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>eG3R7rtipME2wRUWT0u4ONidMqVP8Bam9+7DFQiNytw=</DigestValue>
 </Reference>
-<Reference URI="author-signature%203.xml">
+<Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>S59as5AtAR+i724ca8Amo09NyYMsgweJACHmKxV2CeI=</DigestValue>
 </Reference>
-<Reference URI="author-signature.xml">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>usqtph+VparkluqqmnPAO9ccRMIVTsEmoqU7izTK5XQ=</DigestValue>
-</Reference>
 <Reference URI="bin%2Ftizen_gles_sample">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Fb32YlResbVIGsVzEng+Z47/SkrlJV0toq4IjGe7ksQ=</DigestValue>
+<DigestValue>Xw3SyMduRoudZhnNfQA7dqgKC7h7Ttcc2uasPXmJ3wY=</DigestValue>
 </Reference>
 <Reference URI="res%2Fobj3d%2Fcube">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -190,10 +186,6 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>Akd1pvKXkhnhqw1gCYlN6JILHFpsrTbmqdcJmOxqRrI=</DigestValue>
 </Reference>
-<Reference URI="res%2Ftex%2Fi3dp_0807.png">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>yPpZ6CYJ2H9d2JtCoBsOEt5SX1nmEXeMz2lLLHlczec=</DigestValue>
-</Reference>
 <Reference URI="res%2Ftex%2Ftex_c_brick.bmp">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>KiwEH35YFwnFau3Ftd3Iqn18ugl51h+5ljApSJidFVU=</DigestValue>
@@ -226,14 +218,6 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>7SpFuqX5pIIwofrR9Lq5C7tAk79kh5609fwJJXKFgac=</DigestValue>
 </Reference>
-<Reference URI="signature1%203.xml">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>jbo/MHNuCYdhGtqWUHubeiFfIRvh1aJscWqk5OZNIs8=</DigestValue>
-</Reference>
-<Reference URI="signature1%204.xml">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>MrEmt2VVGozlgPq7K3QCSwLo4f8fhGwfEqhId4NkQik=</DigestValue>
-</Reference>
 <Reference URI="tizen-manifest.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>iiFbKftaQSdEynsWwBbZ9/f/oInHB4XAhQTnN7D8+5Y=</DigestValue>
@@ -247,9 +231,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-iUbGSAXeULzZJvJZi68VQJqIzB0TDfvsBDIU5VIxn/pDv6L5gnBrASgUekGFkn2wzZzuCRmvqXxI
-YK6whX1HE85cMMRxtnE7KH4Jw25kyBB4B4RHUAo5p0mOlXS8/QbnRo4l49ceoYKXI4wJy734Yydb
-ypKa2AYu4tZG/vnhqT4=
+KRf6yd8x+jQu6A2e+a4yN02NDqEFnvsArgm7ZoClwaadLyKLKpSqRmNN4PvNGgzdKT+OEf2sgpKr
+CoSjCKnxD5LHCIc2fC9zeIVAB2+ls7nbHHXwHSQeTKhP+gcdKo/A2pgcDW+i5R7qJKFLclesOi0L
+sINgok51wL6G7SGv7qA=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

@@ -113,9 +113,9 @@ create_main_list(appdata_s* ad)
 	evas_object_smart_callback_add(list, "selected", list_selected_cb, NULL);
 
 	/* Main Menu Items Here */
-	elm_list_item_append(list, "[HW1]Color Teapot", NULL, NULL, list_item_select_cb, ad);
-	elm_list_item_append(list, "[HW2]Fragment Lighting", NULL, NULL, list_item_select_cb, ad);
-	elm_list_item_append(list, "[HW3]Normal mapping", NULL, NULL, list_item_select_cb, ad);
+	elm_list_item_append(list, "Rubik's Cube", NULL, NULL, list_item_select_cb, ad);
+	//elm_list_item_append(list, "[HW2]Fragment Lighting", NULL, NULL, list_item_select_cb, ad);
+	//elm_list_item_append(list, "[HW3]Normal mapping", NULL, NULL, list_item_select_cb, ad);
 
 	elm_list_go(list);
 
@@ -159,7 +159,7 @@ app_create(void* data)
 	evas_object_show(ad->navi);
 
 	Evas_Object* main_list = create_main_list(ad);
-	Elm_Object_Item* navi_item = elm_naviframe_item_push(ad->navi, "ComputerGraphics HW2", NULL, NULL, main_list, NULL);
+	Elm_Object_Item* navi_item = elm_naviframe_item_push(ad->navi, "Final Project", NULL, NULL, main_list, NULL);
 	elm_naviframe_item_pop_cb_set(navi_item, naviframe_pop_cb, ad);
 
 	evas_object_show(ad->win);
