@@ -2,17 +2,9 @@
 <SignedInfo>
 <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></CanonicalizationMethod>
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
-<Reference URI="author-signature%202.xml">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>eG3R7rtipME2wRUWT0u4ONidMqVP8Bam9+7DFQiNytw=</DigestValue>
-</Reference>
-<Reference URI="author-signature%203.xml">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>S59as5AtAR+i724ca8Amo09NyYMsgweJACHmKxV2CeI=</DigestValue>
-</Reference>
 <Reference URI="bin%2Ftizen_gles_sample">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Fb32YlResbVIGsVzEng+Z47/SkrlJV0toq4IjGe7ksQ=</DigestValue>
+<DigestValue>xKluqb856fPHR5gDqZrcTk9J1mPhDORLqA/035N2Omc=</DigestValue>
 </Reference>
 <Reference URI="res%2Fobj3d%2Fcube">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -142,22 +134,6 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>4Oc/WdJg8XeRUOM9SrlugqdSeP/kpsBn4cGzP7le6MM=</DigestValue>
 </Reference>
-<Reference URI="res%2Fshader%2Fview_f_lit%2Ff_lit.fs">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>XaGwo/Fdxgg0I0+XWyiiyT9M4O4XtjpmHgSJ3HrVXr0=</DigestValue>
-</Reference>
-<Reference URI="res%2Fshader%2Fview_f_lit%2Ff_lit.vs">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>8tt5Rrb4uSRrGHRSuCZ66KXp+CSNCQjvtcnqw9gzTaw=</DigestValue>
-</Reference>
-<Reference URI="res%2Fshader%2Fview_nor%2Fnor.fs">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>afjCkpvVzVwGpT5LbwhAzyBn10X234IknMFSSWc/24M=</DigestValue>
-</Reference>
-<Reference URI="res%2Fshader%2Fview_nor%2Fnor.vs">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>y9mDf+Byggar/NVceloutGgccS4eBPpqF+6XPj1xxGw=</DigestValue>
-</Reference>
 <Reference URI="res%2Ftex%2FFig7_xx_Tex2.bmp">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>gtGkZKp6s8U5EF1/sOX1Ift+QhYdFi1ufYLRAPicgDU=</DigestValue>
@@ -218,18 +194,6 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>1d0oEZHqPn+QzNzGIHwj9ODby6x9ggFs9uOsav6jPNs=</DigestValue>
 </Reference>
-<Reference URI="signature1%202.xml">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>7SpFuqX5pIIwofrR9Lq5C7tAk79kh5609fwJJXKFgac=</DigestValue>
-</Reference>
-<Reference URI="signature1%203.xml">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>jbo/MHNuCYdhGtqWUHubeiFfIRvh1aJscWqk5OZNIs8=</DigestValue>
-</Reference>
-<Reference URI="signature1%204.xml">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>MrEmt2VVGozlgPq7K3QCSwLo4f8fhGwfEqhId4NkQik=</DigestValue>
-</Reference>
 <Reference URI="tizen-manifest.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>iiFbKftaQSdEynsWwBbZ9/f/oInHB4XAhQTnN7D8+5Y=</DigestValue>
@@ -243,11 +207,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-JgU/RAKPqDzBhOCZFuAfn8rs7lCKetdQKQj2xswg/gQdgX6iqUMDfLGjIv0UIXs5CQ+4vNAJTEa0
-W7lMFZVkg4FXXNr3kvYXblIdB4owkL8/adSmhKe8bOJvMwSnQ5q560PYUpSfkG9I/+iMKXWpelHu
-jIQZQEIw3LgYGTHwAprgBiTslR6t/wigVFRwfrupCMeWXh4TP7rNx3YeTM6Ibguu+k4gUJ53T55i
-3efaGKnLcDld49+zH519YmYvTNyzMqqQBbbrDPSDBrq2ofa6eiDe5SZVrbbvVVsCEVOyV61/2sG/
-TOMgspg2hdGCgQGeBe3s/+hIjqSUqjjzeS8O0w==
+Yjbghw37uupmLg5lZJAXfHP3eFTYHnH3akW6QZeO6aZbhk7wWPsC3mTw6GegrcPvZ/ILfNDYXDZY
+Z+ePpZ37gtCI+uuOLSbufaYE/x0b5XVCobN34Qb7AxVNpKvNYn0oRD7bWM8jtmDKcnuKl1Zpn4ZL
+u6jbFsoc+zhenSST9jXJeHfQyUv8ie0H0gFAyQdHLdVRhjtLL4DSZh6UWuOHahDWV6XvM73NUGmq
+6o5RQJ/+8QqSbuF76/Sz5EHin+Eu4PY7e1fsJ/+pgI63OANlIQkVZtVaUN7QNyYICmezDj9eTO5R
+IC+Zf8mQ9uSIESSk8KccHcjJdlTIESNX+j3JXg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

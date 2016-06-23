@@ -1,9 +1,5 @@
-src/sample/frag_lighting_view.o: ../src/sample/frag_lighting_view.cpp \
-  /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/sample/frag_lighting_view.h \
-  /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/sample/sample_view.h \
-  /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/basic/basic_renderer.h \
-  /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/basic/basic_gl_set.h \
-  /Users/Josh/tizen-sdk/tools/smart-build-interface/../../platforms/tizen-2.4/mobile/rootstraps/mobile-2.4-emulator.core/usr/include/elementary-1/Elementary_GL_Helpers.h \
+src/sample/launcher_interface.o: ../src/sample/launcher_interface.cpp \
+  /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/sample/launcher_interface.h \
   /Users/Josh/tizen-sdk/tools/smart-build-interface/../../platforms/tizen-2.4/mobile/rootstraps/mobile-2.4-emulator.core/usr/include/elementary-1/Elementary.h \
   /Users/Josh/tizen-sdk/tools/smart-build-interface/../../platforms/tizen-2.4/mobile/rootstraps/mobile-2.4-emulator.core/usr/include/efl-1/Efl_Config.h \
   /Users/Josh/tizen-sdk/tools/smart-build-interface/../../platforms/tizen-2.4/mobile/rootstraps/mobile-2.4-emulator.core/usr/include/eina-1/Eina.h \
@@ -462,11 +458,11 @@ src/sample/frag_lighting_view.o: ../src/sample/frag_lighting_view.cpp \
   /Users/Josh/tizen-sdk/tools/smart-build-interface/../../platforms/tizen-2.4/mobile/rootstraps/mobile-2.4-emulator.core/usr/include/elementary-1/elm_win_legacy.h \
   /Users/Josh/tizen-sdk/tools/smart-build-interface/../../platforms/tizen-2.4/mobile/rootstraps/mobile-2.4-emulator.core/usr/include/elementary-1/elm_win.eo.legacy.h \
   /Users/Josh/tizen-sdk/tools/smart-build-interface/../../platforms/tizen-2.4/mobile/rootstraps/mobile-2.4-emulator.core/usr/include/elementary-1/elm_deprecated.h \
-  /Users/Josh/tizen-sdk/tools/smart-build-interface/../../platforms/tizen-2.4/mobile/rootstraps/mobile-2.4-emulator.core/usr/include/evas-1/Evas_GL_GLES1_Helpers.h \
-  /Users/Josh/tizen-sdk/tools/smart-build-interface/../../platforms/tizen-2.4/mobile/rootstraps/mobile-2.4-emulator.core/usr/include/evas-1/Evas_GL_GLES2_Helpers.h \
-  /Users/Josh/tizen-sdk/tools/smart-build-interface/../../platforms/tizen-2.4/mobile/rootstraps/mobile-2.4-emulator.core/usr/include/evas-1/Evas_GL_GLES3_Helpers.h \
+  /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/sample/sample_launcher.h \
+  /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/sample/sample_view.h \
+  /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/basic/basic_renderer.h \
+  /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/basic/basic_gl_set.h \
   /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/basic/basic_utils.h \
-  /Users/Josh/tizen-sdk/tools/smart-build-interface/../../platforms/tizen-2.4/mobile/rootstraps/mobile-2.4-emulator.core/usr/include/dlog/dlog.h \
   /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/basic/basic_camera.h \
   /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/glm/glm.hpp \
   /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/glm/detail/_fixes.hpp \
@@ -548,5 +544,4 @@ src/sample/frag_lighting_view.o: ../src/sample/frag_lighting_view.cpp \
   /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/glm/gtc/matrix_transform.inl \
   /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/basic/basic_texdata.h \
   /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/basic/basic_shader.h \
-  /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/basic/basic_timer.h \
-  /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/basic/basic_file_loader.h
+  /Users/Josh/Library/Mobile\ Documents/com~apple~CloudDocs/College/Junior/Semester2/ComputerGraphics/repository/Tizen_Template_HW3/inc/basic/basic_timer.h

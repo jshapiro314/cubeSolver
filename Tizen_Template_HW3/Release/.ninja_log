@@ -1,0 +1,9 @@
+# ninja log v5
+6	100	0	src/renderer/platform/win/basic_file_loader_win.o	1fbe2774b8569839
+6	105	0	src/renderer/platform/tizen/basic_file_loader_tizen.o	f3a7cc810bdcd0a3
+100	1807	0	src/renderer/basic_camera.o	8329d19443e8990f
+0	4	0	clean_sa	af1ba9ff7c4859f3
+4	22	0	clean	d59b6dac04fa9b5d
+1	82	0	src/renderer/platform/win/basic_file_loader_win.o	1fbe2774b8569839
+1	108	0	src/renderer/platform/tizen/basic_file_loader_tizen.o	f3a7cc810bdcd0a3
+8	1385	0	src/renderer/basic_camera.o	8329d19443e8990f

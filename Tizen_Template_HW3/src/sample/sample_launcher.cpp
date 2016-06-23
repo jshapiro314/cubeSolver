@@ -2,8 +2,6 @@
 #include "gles_sample.h"
 
 #include "sample/coloring_view.h"
-#include "sample/frag_lighting_view.h"
-#include "sample/normal_mapping_view.h"
 
 SampleLauncher* SampleLauncher::instance = NULL;
 

@@ -10,18 +10,10 @@ build src/sample/coloring_view.o: build_cpp ../src/sample/coloring_view.cpp
 build src/sample/coloring_view.o.ast: build_cpp_fast_ast ../src/sample/coloring_view.cpp 
 build $sareportdir/src/sample/coloring_view.o.xml: build_cpp_fast_sa src/sample/coloring_view.o.ast || externalFnMap.txt
 build src/sample/coloring_view.o.txt: build_cpp_api ../src/sample/coloring_view.cpp 
-build src/sample/frag_lighting_view.o: build_cpp ../src/sample/frag_lighting_view.cpp 
-build src/sample/frag_lighting_view.o.ast: build_cpp_fast_ast ../src/sample/frag_lighting_view.cpp 
-build $sareportdir/src/sample/frag_lighting_view.o.xml: build_cpp_fast_sa src/sample/frag_lighting_view.o.ast || externalFnMap.txt
-build src/sample/frag_lighting_view.o.txt: build_cpp_api ../src/sample/frag_lighting_view.cpp 
 build src/sample/launcher_interface.o: build_cpp ../src/sample/launcher_interface.cpp 
 build src/sample/launcher_interface.o.ast: build_cpp_fast_ast ../src/sample/launcher_interface.cpp 
 build $sareportdir/src/sample/launcher_interface.o.xml: build_cpp_fast_sa src/sample/launcher_interface.o.ast || externalFnMap.txt
 build src/sample/launcher_interface.o.txt: build_cpp_api ../src/sample/launcher_interface.cpp 
-build src/sample/normal_mapping_view.o: build_cpp ../src/sample/normal_mapping_view.cpp 
-build src/sample/normal_mapping_view.o.ast: build_cpp_fast_ast ../src/sample/normal_mapping_view.cpp 
-build $sareportdir/src/sample/normal_mapping_view.o.xml: build_cpp_fast_sa src/sample/normal_mapping_view.o.ast || externalFnMap.txt
-build src/sample/normal_mapping_view.o.txt: build_cpp_api ../src/sample/normal_mapping_view.cpp 
 build src/sample/sample_launcher.o: build_cpp ../src/sample/sample_launcher.cpp 
 build src/sample/sample_launcher.o.ast: build_cpp_fast_ast ../src/sample/sample_launcher.cpp 
 build $sareportdir/src/sample/sample_launcher.o.xml: build_cpp_fast_sa src/sample/sample_launcher.o.ast || externalFnMap.txt
